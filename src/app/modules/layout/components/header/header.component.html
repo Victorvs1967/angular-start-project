@@ -1,0 +1,8 @@
+<mat-toolbar color="primary">
+  <span>Project</span>
+  <button mat-icon-button [matMenuTriggerFor]="menu"><mat-icon class="mat-18">more_vert</mat-icon></button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="login()"><mat-icon class="mat-18">login</mat-icon>login</button>
+    <button mat-menu-item><mat-icon class="mat-18">logout</mat-icon>logout</button>
+  </mat-menu>
+</mat-toolbar>

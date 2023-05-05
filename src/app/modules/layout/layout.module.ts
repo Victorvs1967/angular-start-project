@@ -7,7 +7,6 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './components/home/home.component';
 import { MaterialUiModule } from '../material-ui/material-ui.module';
-import { AuthModule } from '../auth/auth.module';
 
 
 @NgModule({
@@ -21,7 +20,6 @@ import { AuthModule } from '../auth/auth.module';
     CommonModule,
     LayoutRoutingModule,
     MaterialUiModule,
-    AuthModule,
   ],
 })
 export class LayoutModule { }

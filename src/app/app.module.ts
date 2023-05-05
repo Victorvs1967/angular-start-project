@@ -6,6 +6,9 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialUiModule } from './modules/material-ui/material-ui.module';
 import { LocationStrategy, PathLocationStrategy } from '@angular/common';
+import { JwtService } from './services/jwt.service';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { TokenInterceptor } from './interceptors/token.interceptor';
 
 @NgModule({
   declarations: [
@@ -16,12 +19,19 @@ import { LocationStrategy, PathLocationStrategy } from '@angular/common';
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialUiModule,
+    HttpClientModule,
   ],
   providers: [
+    JwtService,
     {
       provide: LocationStrategy,
       useClass: PathLocationStrategy,
-    }
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true,
+    },
   ],
   bootstrap: [AppComponent]
 })

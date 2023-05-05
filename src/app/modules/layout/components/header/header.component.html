@@ -1,8 +1,13 @@
 <mat-toolbar color="primary">
   <span>Project</span>
+  <ul class="menu">
+    <li class="menu-item"><button mat-button (click)="userList()">Users</button></li>
+    <li class="menu-item"><button mat-button>About</button></li>
+    <li class="menu-item"><button mat-button>Contacts</button></li>
+  </ul>
   <button mat-icon-button [matMenuTriggerFor]="menu"><mat-icon class="mat-18">more_vert</mat-icon></button>
   <mat-menu #menu="matMenu">
-    <button mat-menu-item (click)="login()"><mat-icon class="mat-18">login</mat-icon>login</button>
-    <button mat-menu-item><mat-icon class="mat-18">logout</mat-icon>logout</button>
+    <button mat-menu-item (click)="login()" *ngIf="!(isLogin | async)"><mat-icon class="mat-18">login</mat-icon>login</button>
+    <button mat-menu-item (click)="logout()" *ngIf="isLogin | async"><mat-icon class="mat-18">logout</mat-icon>logout</button>
   </mat-menu>
 </mat-toolbar>

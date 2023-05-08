@@ -1,4 +1,5 @@
 import { Component, inject } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { LoginComponent } from 'src/app/modules/auth/components/login/login.component';
 import { AuthService } from 'src/app/services/auth.service';
@@ -14,6 +15,7 @@ export class HeaderComponent {
 
   dialog = inject(DialogService);
   private auth = inject(AuthService);
+  private router = inject(Router);
 
   isLogin: Observable<boolean> = this.auth.isLoggedIn;
 
@@ -21,6 +23,7 @@ export class HeaderComponent {
   login() { }
 
   logout() {
+    this.router.navigate([ 'main', 'home' ]);
     this.auth.logout();
   };
 }

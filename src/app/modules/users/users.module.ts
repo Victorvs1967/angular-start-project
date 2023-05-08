@@ -12,7 +12,7 @@ import { MaterialUiModule } from '../material-ui/material-ui.module';
   ],
   imports: [
     CommonModule,
-    UsersRoutingModule,
+    // UsersRoutingModule,
     MaterialUiModule,
   ]
 })

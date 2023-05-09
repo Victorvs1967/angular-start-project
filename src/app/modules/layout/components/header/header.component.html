@@ -1,7 +1,8 @@
 <mat-toolbar color="primary">
-  <a mat-button class="header-title" routerLink="/main"><span>Project</span></a>
+  <a mat-button class="header-title" routerLink="/main/home"><span>Project</span></a>
   <ul class="menu">
     <li class="menu-item"><a mat-button routerLink="users" [disabled]="!(isLogin | async)">Users</a></li>
+    <li class="menu-item"><a mat-button (click)="addUser()">Add User</a></li>
     <li class="menu-item"><a mat-button routerLink="home">About</a></li>
     <li class="menu-item"><a mat-button>Contacts</a></li>
   </ul>

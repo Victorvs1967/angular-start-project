@@ -12,7 +12,7 @@ import { JwtService } from './services/jwt.service';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,

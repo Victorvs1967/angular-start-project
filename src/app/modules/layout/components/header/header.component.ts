@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { LoginComponent } from 'src/app/modules/auth/components/login/login.component';
+import { SignupComponent } from 'src/app/modules/auth/components/signup/signup.component';
 import { AuthService } from 'src/app/services/auth.service';
 import { modal } from 'src/app/services/dialog.decorator';
 import { DialogService } from 'src/app/services/dialog.service';
@@ -20,7 +21,12 @@ export class HeaderComponent {
   isLogin: Observable<boolean> = this.auth.isLoggedIn;
 
   @modal(LoginComponent)
-  login() { }
+  login() {
+    this.router.navigate(['main', 'users']);
+  }
+
+  @modal(SignupComponent)
+  addUser() {}
 
   logout() {
     this.router.navigate([ 'main', 'home' ]);

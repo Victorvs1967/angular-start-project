@@ -1,4 +1,4 @@
-import { CollectionViewer, DataSource } from "@angular/cdk/collections";
+import { DataSource } from "@angular/cdk/collections";
 import { BehaviorSubject, Observable } from "rxjs";
 
 export class AppDataSource extends DataSource<any> {
@@ -14,7 +14,7 @@ export class AppDataSource extends DataSource<any> {
     return this.data;
   }
 
-  override disconnect(collectionViewer: CollectionViewer): void {
+  override disconnect(): void {
     throw new Error("Method not implemented.");
   }
 

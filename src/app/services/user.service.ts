@@ -15,4 +15,16 @@ export class UserService {
     return this.http.get<User[]>(environment.baseUrl.concat(environment.userUrl));
   }
 
+  getUser(username: string): Observable<User> {
+    return this.http.get<User>(environment.baseUrl.concat(environment.userUrl, '/', username));
+  }
+
+  editUser(user: User): Observable<User> {
+    return this.http.put<User>(environment.baseUrl.concat(environment.userUrl), user);
+  }
+
+  deleteUser(username: string): Observable<User> {
+    return this.http.delete<User>(environment.baseUrl.concat(environment.userUrl, '/', username));
+  }
+
 }

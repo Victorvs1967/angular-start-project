@@ -23,9 +23,9 @@ export class UserEditComponent {
     private userServise: UserService,
   ) {
     this.user = UsersListComponent.user;
+
     this.userForm = this.formBuilder.group({
       username: [this.user.username, Validators.required],
-      password: [this.user.password, Validators.required],
       email: [this.user.email, Validators.required],
       firstName: this.user.firstName,
       lastName: this.user.lastName,
@@ -34,7 +34,10 @@ export class UserEditComponent {
   }
 
   submit() {
-    this.userServise.editUser(this.user)
-      .subscribe();
+    this.userServise.editUser({
+      ...this.user,
+      ...this.userForm.value
+    })
+    .subscribe();
   }
 }

@@ -35,6 +35,12 @@ export class UsersListComponent implements OnInit {
       .subscribe();
   }
 
+  editUser(user: User) {
+    UsersListComponent.user = user;
+    this.getUser();
+  }
+
   @modal(UserEditComponent, UsersListComponent.user)
-  editUser(user: User) {}
+  getUser() {
+  }
 }

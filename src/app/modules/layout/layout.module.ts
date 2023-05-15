@@ -7,6 +7,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './components/home/home.component';
 import { MaterialUiModule } from '../material-ui/material-ui.module';
+import { CommonComponent } from './components/common/common.component';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import { MaterialUiModule } from '../material-ui/material-ui.module';
     HeaderComponent,
     FooterComponent,
     HomeComponent,
+    CommonComponent,
   ],
   imports: [
     CommonModule,

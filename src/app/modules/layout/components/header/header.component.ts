@@ -22,14 +22,15 @@ export class HeaderComponent {
 
   @modal(LoginComponent)
   login() {
-    this.router.navigate(['main', 'users']);
+    this.router.navigate([ '/', 'main', 'home']);
   }
 
   @modal(SignupComponent)
   addUser() {}
 
   logout() {
-    this.router.navigate([ 'main', 'home' ]);
+    this.router.navigate([ '/', 'main', 'home' ]);
     this.auth.logout();
   };
+
 }

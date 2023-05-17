@@ -1,6 +1,7 @@
 import { Component, Inject, inject } from '@angular/core';
 import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Role } from 'src/app/models/role.model';
 import { User } from 'src/app/models/user.model';
 import { AuthService } from 'src/app/services/auth.service';
 
@@ -19,12 +20,12 @@ export class SignupComponent {
     private auth: AuthService,
   ) {
     this.signupForm = this.formBuilder.group({
-      username: ['', Validators.required],
-      password: ['', Validators.required],
-      email: ['', Validators.required],
-      firstName: '',
-      lastName: '',
-      role: ['', Validators.required],
+      username: [ '', Validators.required ],
+      password: [ '', Validators.required ],
+      email: [ '', Validators.required ],
+      firstName: [ '' ],
+      lastName: [ '' ],
+      role: [ Role.USER] ,
     });
   }
 

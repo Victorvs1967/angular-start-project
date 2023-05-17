@@ -5,6 +5,8 @@ import { User } from 'src/app/models/user.model';
 import { AuthService } from 'src/app/services/auth.service';
 import { UserService } from 'src/app/services/user.service';
 import { UsersListComponent } from '../users-list/users-list.component';
+import { Role } from 'src/app/models/role.model';
+import { UserRole } from 'src/app/models/user-role.model';
 
 @Component({
   selector: 'user-edit',
@@ -15,6 +17,13 @@ export class UserEditComponent {
 
   user: User;
   userForm: UntypedFormGroup;
+
+  roles: UserRole[] = [
+    { value: Role.ADMIN, viewValue: Role.ADMIN },
+    { value: Role.USER, viewValue: Role.USER },
+    { value: Role.MODERATOR, viewValue: Role.MODERATOR },
+  ];
+
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: User,

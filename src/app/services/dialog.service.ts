@@ -21,6 +21,7 @@ export class DialogService {
   openDialog<T>(data: any, component: ComponentType<T>, width = '600px') {
     return this.dialog.open(component, {
       width: width,
+      maxHeight: '90vh',
       data: data,
       disableClose: true,
     })

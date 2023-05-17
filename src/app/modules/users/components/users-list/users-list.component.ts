@@ -7,6 +7,7 @@ import { UserEditComponent } from '../user-edit/user-edit.component';
 import { User } from 'src/app/models/user.model';
 import { Router } from '@angular/router';
 import { CommonComponent } from 'src/app/modules/layout/components/common/common.component';
+import { AppDataSource } from 'src/app/data/data-source';
 
 @Component({
   selector: 'app-users-list',
@@ -35,7 +36,7 @@ export class UsersListComponent extends CommonComponent {
 
   reloadData(): void{
     this.userService.getUsers().pipe(
-      map(data => this.dataSource = [...data]))
+      map(data => this.dataSource = new  AppDataSource([ ...data ])))
       .subscribe();
   }
 

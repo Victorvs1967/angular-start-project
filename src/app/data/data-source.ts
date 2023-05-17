@@ -14,8 +14,7 @@ export class AppDataSource extends DataSource<any> {
     return this.data;
   }
 
-  override disconnect(): void {
-    throw new Error("Method not implemented.");
+  disconnect(): void {
   }
 
 }

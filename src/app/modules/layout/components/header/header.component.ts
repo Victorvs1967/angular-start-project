@@ -6,19 +6,23 @@ import { SignupComponent } from 'src/app/modules/auth/components/signup/signup.c
 import { AuthService } from 'src/app/services/auth.service';
 import { modal } from 'src/app/services/dialog.decorator';
 import { DialogService } from 'src/app/services/dialog.service';
+import { CommonComponent } from '../common/common.component';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.sass']
 })
-export class HeaderComponent {
+export class HeaderComponent extends CommonComponent {
 
   dialog = inject(DialogService);
   private auth = inject(AuthService);
-  private router = inject(Router);
 
   isLogin: Observable<boolean> = this.auth.isLoggedIn;
+
+  constructor(public override router: Router) {
+    super(router)
+  }
 
   @modal(LoginComponent)
   login() {
@@ -26,7 +30,9 @@ export class HeaderComponent {
   }
 
   @modal(SignupComponent)
-  addUser() {}
+  addUser() {
+    this.reloadComponent(true);
+  }
 
   logout() {
     this.router.navigate([ '/', 'main', 'home' ]);

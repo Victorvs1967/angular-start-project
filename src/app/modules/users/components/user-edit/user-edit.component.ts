@@ -7,13 +7,15 @@ import { UserService } from 'src/app/services/user.service';
 import { UsersListComponent } from '../users-list/users-list.component';
 import { Role } from 'src/app/models/role.model';
 import { UserRole } from 'src/app/models/user-role.model';
+import { CommonComponent } from 'src/app/modules/layout/components/common/common.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'user-edit',
   templateUrl: './user-edit.component.html',
   styleUrls: ['./user-edit.component.sass']
 })
-export class UserEditComponent {
+export class UserEditComponent extends CommonComponent {
 
   user: User;
   userForm: UntypedFormGroup;
@@ -30,7 +32,9 @@ export class UserEditComponent {
     private formBuilder: UntypedFormBuilder,
     private auth: AuthService,
     private userServise: UserService,
+    public override router: Router,
   ) {
+    super(router)
     this.user = UsersListComponent.user;
 
     this.userForm = this.formBuilder.group({
@@ -48,5 +52,11 @@ export class UserEditComponent {
       ...this.userForm.value
     })
     .subscribe();
+    this.reloadComponent(true);
+  }
+
+  delete(username: string) {
+    this.userServise.deleteUser(username).subscribe();
+    this.reloadComponent(true);
   }
 }

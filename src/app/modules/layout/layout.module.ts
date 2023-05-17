@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { HighchartsChartModule } from 'highcharts-angular';
 
 import { LayoutRoutingModule } from './layout-routing.module';
 import { LayoutComponent } from './components/layout/layout.component';
@@ -22,6 +23,7 @@ import { CommonComponent } from './components/common/common.component';
     CommonModule,
     LayoutRoutingModule,
     MaterialUiModule,
+    HighchartsChartModule,
   ],
 })
 export class LayoutModule { }

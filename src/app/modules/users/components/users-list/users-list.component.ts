@@ -16,7 +16,7 @@ import { AppDataSource } from 'src/app/data/data-source';
 })
 export class UsersListComponent extends CommonComponent {
 
-  displayedColumns = [ 'username', 'email', 'firstName', 'lastName', 'role', 'onCreate', 'onUpdate' ];
+  displayedColumns = [ 'username', 'email', 'fullName', 'role', 'onCreate', 'onUpdate' ];
   dataSource: any;
 
   isLogin: Observable<boolean> = this.auth.isLoggedIn;
@@ -26,8 +26,8 @@ export class UsersListComponent extends CommonComponent {
     private auth: AuthService,
     private userService: UserService,
     public override router: Router,
-  ) {
-    super(router);
+    ) {
+      super(router);
   }
 
   override ngOnInit(): void {
@@ -42,7 +42,7 @@ export class UsersListComponent extends CommonComponent {
 
   editUser(user: User) {
     UsersListComponent.user = user;
-    this.getUser();
+    if (this.auth.isAdmin) this.getUser();
 }
 
   @modal(UserEditComponent, UsersListComponent.user)

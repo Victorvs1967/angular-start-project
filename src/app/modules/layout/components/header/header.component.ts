@@ -26,7 +26,7 @@ export class HeaderComponent extends CommonComponent {
 
   @modal(LoginComponent)
   login() {
-    this.router.navigate([ '/', 'main', 'home']);
+    this.router.navigate([ '/main' ]);
   }
 
   @modal(SignupComponent)
@@ -35,8 +35,8 @@ export class HeaderComponent extends CommonComponent {
   }
 
   logout() {
-    this.router.navigate([ '/', 'main', 'home' ]);
     this.auth.logout();
+    this.router.navigate([ '/main' ]);
   };
 
 }

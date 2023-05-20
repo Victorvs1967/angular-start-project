@@ -2,7 +2,6 @@ import { Component, Inject } from '@angular/core';
 import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { User } from 'src/app/models/user.model';
-import { AuthService } from 'src/app/services/auth.service';
 import { UserService } from 'src/app/services/user.service';
 import { UsersListComponent } from '../users-list/users-list.component';
 import { Role } from 'src/app/models/role.model';
@@ -30,7 +29,6 @@ export class UserEditComponent extends CommonComponent {
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: User,
     private formBuilder: UntypedFormBuilder,
-    private auth: AuthService,
     private userServise: UserService,
     public override router: Router,
   ) {

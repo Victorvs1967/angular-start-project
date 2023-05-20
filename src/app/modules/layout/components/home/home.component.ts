@@ -15,7 +15,7 @@ export class HomeComponent {
       },
     },
     title: {
-      text: 'Solar Employment Growth by Sector, 2010-2016',
+      text: 'Solar Employment Growth by Sector, 2014-2021',
       style: {
         fontSize: '1.2em',
       },

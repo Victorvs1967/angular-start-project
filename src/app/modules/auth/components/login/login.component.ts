@@ -29,15 +29,14 @@ export class LoginComponent {
     });
   }
 
-  submit() {
+  submit(): void {
     this.auth.login(this.loginForm.value)
       .pipe(
         map(res => {
           this.isLogin = this.auth.isLoggedIn;
           this.isAdmin = this.auth.isAdmin;
         })
-      )
-      .subscribe();
+      ).subscribe();
   }
 
   @modal(SignupComponent)
